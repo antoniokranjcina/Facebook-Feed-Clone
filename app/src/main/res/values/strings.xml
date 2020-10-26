@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Facebook HomePage Clone</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="image">image</string>
+    <string name="comments">Comments: </string>
+    <string name="likes">Likes: </string>
+    <string name="comment_input" tools:ignore="TypographyEllipsis">Comment...</string>
+    <string name="retry">Retry</string>
+    <string name="no_internet_connection">No Internet connection.</string>
+    <string name="no_results">No results</string>
+    <string name="results_could_not_be_loaded">Results could not be loaded.</string>
+    <string name="what_is_on_your_mind">What is on your mind?</string>
+    <string name="name">Antonio Kranjčina</string>
+</resources>
