@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.social.network.R
@@ -37,6 +39,7 @@ class HomeFragment : Fragment(), PostsAdapter.OnItemClickListener, View.OnClickL
         setOnClickListeners()
 
         val postAdapter = PostsAdapter(this)
+        postAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
 
         binding.apply {
             myProfilePicture.load("https://previews.123rf.com/images/metelsky/metelsky1809/metelsky180900233/109815470-man-avatar-profile-male-face-icon-vector-illustration-.jpg") {
@@ -45,6 +48,7 @@ class HomeFragment : Fragment(), PostsAdapter.OnItemClickListener, View.OnClickL
             }
             recyclerView.apply {
                 isNestedScrollingEnabled = false
+                layoutManager = LinearLayoutManager(requireContext())
                 setHasFixedSize(true)
                 itemAnimator = null
                 adapter = postAdapter.withLoadStateHeaderAndFooter(

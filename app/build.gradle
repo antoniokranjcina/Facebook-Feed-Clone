@@ -59,21 +59,19 @@ dependencies {
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
     kapt "androidx.hilt:hilt-compiler:1.0.0-alpha02"
 
+    // Room
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
+    implementation 'androidx.room:room-runtime:2.2.5'
+
     // Retrofit + GSON
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-
-    // Glide
-    implementation "com.github.bumptech.glide:glide:4.11.0"
 
     // Coil
     implementation("io.coil-kt:coil:1.0.0")
 
     // Paging 3
     implementation "androidx.paging:paging-runtime-ktx:3.0.0-alpha07"
-
-    // circle image view
-    implementation 'com.alexzh:circleimageview:1.2.0'
 
 }
 

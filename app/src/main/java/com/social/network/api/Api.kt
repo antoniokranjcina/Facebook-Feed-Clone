@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface Api {
 
     companion object {
-        const val BASE_URL = "http://c0d087b7d001.ngrok.io"
+        const val BASE_URL = "http://4976442c3e46.ngrok.io"
     }
 
     @GET("/posts")
