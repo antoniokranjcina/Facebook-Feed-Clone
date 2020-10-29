@@ -1,12 +1,9 @@
 package com.social.network.ui.home
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -41,7 +38,6 @@ class PostsAdapter(private val listener: OnItemClickListener) : PagingDataAdapte
 
         @SuppressLint("SetTextI18n")
         fun bind(post: SocialNetworkPost) {
-            Log.d("PostAdapter", "bind: $post")
 
             binding.apply {
 
@@ -51,18 +47,12 @@ class PostsAdapter(private val listener: OnItemClickListener) : PagingDataAdapte
                 }
 
                 textViewName.text = post.accountName
-//                if (post.description.isEmpty()) textViewDescription.isVisible = false
-//                else
                 textViewDescription.text = post.description
 
                 imageViewDescription.load(post.descriptionImage)
 
                 textViewLikesAmount.text = "Likes: " + "%,d".format(post.likesAmount.toInt())
                 textViewCommentsAmount.text = "Comments: " + "%,d".format(post.commentsAmount.toInt())
-            }
-
-            fun makeInvisible(textView: TextView, shouldBeInvisible: Boolean) {
-                textView.isVisible = shouldBeInvisible
             }
         }
 

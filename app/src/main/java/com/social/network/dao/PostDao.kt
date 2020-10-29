@@ -14,5 +14,5 @@ interface PostDao {
     suspend fun savePost(post: List<SocialNetworkPost>)
 
     @Query("SELECT * FROM home_feed")
-    fun getPosts(): PagingSource<Int, SocialNetworkPost>
+    fun getPosts(): PagingSource
 }

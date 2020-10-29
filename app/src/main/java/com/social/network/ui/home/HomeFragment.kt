@@ -1,9 +1,7 @@
 package com.social.network.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,7 +15,6 @@ import com.social.network.R
 import com.social.network.data.SocialNetworkPost
 import com.social.network.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(), PostsAdapter.OnItemClickListener, View.OnClickListener {
@@ -35,6 +32,8 @@ class HomeFragment : Fragment(), PostsAdapter.OnItemClickListener, View.OnClickL
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setHasOptionsMenu(true)
 
         setOnClickListeners()
 
@@ -63,11 +62,6 @@ class HomeFragment : Fragment(), PostsAdapter.OnItemClickListener, View.OnClickL
 
         observeViewModel(postAdapter)
 
-//        binding.swipeRefreshLayout.setOnRefreshListener {
-//            observeViewModel(postAdapter)
-//            binding.swipeRefreshLayout.isRefreshing = false
-//        }
-
         postAdapter.addLoadStateListener { loadState ->
             binding.apply {
                 progressBar.isVisible = loadState.source.refresh is LoadState.Loading
@@ -89,6 +83,22 @@ class HomeFragment : Fragment(), PostsAdapter.OnItemClickListener, View.OnClickL
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_home, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_search -> {
+                val action = HomeFragmentDirections.actionHomeFragmentToSearchFragment()
+                findNavController().navigate(action)
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onClick(v: View?) {
@@ -117,6 +127,5 @@ class HomeFragment : Fragment(), PostsAdapter.OnItemClickListener, View.OnClickL
         viewModel.posts.observe(viewLifecycleOwner) {
             postAdapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
-
     }
 }

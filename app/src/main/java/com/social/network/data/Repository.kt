@@ -15,6 +15,6 @@ class Repository @Inject constructor(private val api: Api) {
             maxSize = 100,
             enablePlaceholders = false
         ),
-        pagingSourceFactory = { PagingSource<Any, Any?>(api) }
+        pagingSourceFactory = { PagingSource(api) }
     ).liveData
 }

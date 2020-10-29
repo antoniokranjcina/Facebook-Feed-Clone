@@ -13,4 +13,7 @@
     <string name="results_could_not_be_loaded">Results could not be loaded.</string>
     <string name="what_is_on_your_mind">What is on your mind?</string>
     <string name="name">Antonio Kranjčina</string>
+    <string name="search">Search</string>
+    <string name="messenger">Messenger</string>
+    <string name="post">Post</string>
 </resources>

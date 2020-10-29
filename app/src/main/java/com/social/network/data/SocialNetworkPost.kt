@@ -10,6 +10,8 @@ import kotlinx.android.parcel.Parcelize
 data class SocialNetworkPost(
     @ColumnInfo(name = "id")
     val id: String,
+    @ColumnInfo(name = "comment_id")
+    val commentId: String,
     @ColumnInfo(name = "account_name")
     val accountName: String,
     @ColumnInfo(name = "account_icon")
@@ -22,7 +24,8 @@ data class SocialNetworkPost(
     val likesAmount: String,
     @ColumnInfo(name = "comments_amount")
     val commentsAmount: String,
-    val comments: List<Comment>
+    @ColumnInfo(name = "category")
+    val category: String,
 ) : Parcelable {
 
     @Entity(tableName = "comments")

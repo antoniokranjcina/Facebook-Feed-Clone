@@ -33,15 +33,15 @@ class CommentsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val commentAdapter = CommentAdapter()
-        commentAdapter.submitList(post.comments)
-
-        binding.apply {
-            recyclerView.apply {
-                setHasFixedSize(true)
-                itemAnimator = null
-                adapter = commentAdapter
-            }
-        }
+//        commentAdapter.submitList(post.comments)
+//
+//        binding.apply {
+//            recyclerView.apply {
+//                setHasFixedSize(true)
+//                itemAnimator = null
+//                adapter = commentAdapter
+//            }
+//        }
     }
 
     override fun onDestroyView() {
